@@ -283,7 +283,7 @@
 
 (defn aufgabe1a [metrics]
   (/
-    (reduce + (map (fn [metric] (get metric :cpuTemp)) metrics))
+    (reduce + (filter (fn [x] (< (get x :cpuTemp) 2)) metrics))
     (count metrics)
     )
   )
