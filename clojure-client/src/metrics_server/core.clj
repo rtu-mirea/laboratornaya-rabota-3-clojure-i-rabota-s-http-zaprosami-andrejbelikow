@@ -297,7 +297,7 @@
 
 (defn aufgabe1c [metrics]
   (
-    filter (fn [a] (< (get a :cpuTemp) 2)) metrics)
+    filter (fn [a] (> (get a :cpuTemp) 2)) metrics)
   )
 
 (defn aufgabe2a [files]
