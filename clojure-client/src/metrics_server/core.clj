@@ -281,34 +281,20 @@
   []
   (:data (get-files-with-http-info)))
 
-(defn neueaufgabe1a [metrics]
-  (/
-    (reduce + (reduce + (map (fn [a] (get a :cpuTemp)) (filter (fn [a] (< (get a :cpuTemp) 2))) metrics)))
-    (count (filter (fn [a] (< (get a :cpuTemp) 2))) metrics)
-    )
-  )
-
-(defn neueaufgabe1b [metrics]
-  (/
-    (reduce + (map (fn [metric] (get metric :cpuLoad)) (filter (fn [a] (< (get a :cpuTemp) 2))) metrics))
-    (count (filter (fn [a] (< (get a :cpuTemp) 2))) metrics)
-    )
-  )
-
-
-(defn alteaufgabe1a [metrics]
+(defn aufgabe1a [metrics]
   (/
     (reduce + (map (fn [metric] (get metric :cpuTemp)) metrics))
     (count metrics)
     )
   )
 
-(defn alteaufgabe1b [metrics]
+(defn aufgabe1b [metrics]
   (/
     (reduce + (map (fn [metric] (get metric :cpuLoad)) metrics))
     (count metrics)
     )
   )
+
 (defn aufgabe1c [metrics]
   (
     filter (fn [a] (< (get a :cpuTemp) 2)) metrics)
@@ -345,11 +331,8 @@
     )
   )
 
-
-(println (neueaufgabe1a (get-metrics)))
-(println (neueaufgabe1b (get-metrics)))
-(println (alteaufgabe1a (get-metrics)))
-(println (alteaufgabe1b (get-metrics)))
+(println (aufgabe1a (get-metrics)))
+(println (aufgabe1b (get-metrics)))
 (println (aufgabe1c (get-metrics)))
 (println (aufgabe2a (get-files)))
 (println (aufgabe2b (get-files)))
